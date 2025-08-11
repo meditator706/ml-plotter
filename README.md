@@ -22,6 +22,7 @@ A simplified machine learning experiment visualization library that maintains pr
 - 📈 **Multiple Chart Types** - Training curves, bar charts, box plots
 - 🎯 **Batch Processing** - Auto-discover and process multiple experimental conditions
 - 🌈 **Consistent Visual Style** - Predefined color mappings and style configurations
+- 🗃️ **Logger Integration** - Seamless integration with experiment logging systems
 
 ### 🚀 Quick Start
 
@@ -60,6 +61,27 @@ fig = plotter.plot_performance_bars(
     data_paths=["method1", "method2", "method3"],
     title="Final Performance Comparison"
 )
+```
+
+#### Logger Integration
+
+```python
+from ml_plotter_logger import create_integrated_logger
+
+# Create integrated logger
+logger = create_integrated_logger("experiment_logs")
+
+# Start experiment run
+logger.start_run("my_experiment", "run_1", 
+                params={"lr": 0.001, "algorithm": "TD3"})
+
+# Log metrics during training
+for step in range(1000):
+    logger.log("run_1", step, {"reward": reward, "loss": loss})
+
+# Auto-generate all plots
+figures = logger.auto_plot_experiment("my_experiment", 
+                                    group_by="algorithm")
 ```
 
 ### 📊 Supported Chart Types
@@ -113,10 +135,14 @@ plotter = MLPlotter(smooth_window=300)
 
 ### 📖 Examples
 
-Run the complete example:
+Run the complete examples:
 
 ```bash
+# Basic plotting examples
 python example.py
+
+# Logger integration examples
+python example_integrated_logger.py
 ```
 
 ### 📄 License
@@ -137,6 +163,7 @@ MIT License
 - 📈 **多种图表类型** - 训练曲线、柱状图、箱线图
 - 🎯 **批量处理** - 自动发现和处理多个实验条件
 - 🌈 **一致的视觉风格** - 预设的颜色映射和样式配置
+- 🗃️ **日志集成** - 与实验日志记录系统无缝集成
 
 ### 🚀 快速开始
 
@@ -175,6 +202,27 @@ fig = plotter.plot_performance_bars(
     data_paths=["method1", "method2", "method3"],
     title="Final Performance Comparison"
 )
+```
+
+#### 日志集成
+
+```python
+from ml_plotter_logger import create_integrated_logger
+
+# 创建集成日志记录器
+logger = create_integrated_logger("experiment_logs")
+
+# 开始实验运行
+logger.start_run("my_experiment", "run_1", 
+                params={"lr": 0.001, "algorithm": "TD3"})
+
+# 训练过程中记录指标
+for step in range(1000):
+    logger.log("run_1", step, {"reward": reward, "loss": loss})
+
+# 自动生成所有图表
+figures = logger.auto_plot_experiment("my_experiment", 
+                                    group_by="algorithm")
 ```
 
 ### 📊 支持的图表类型
@@ -231,7 +279,11 @@ plotter = MLPlotter(smooth_window=300)
 运行完整示例：
 
 ```bash
+# 基本绘图示例
 python example.py
+
+# 日志集成示例
+python example_integrated_logger.py
 ```
 
 ### 📄 许可证
