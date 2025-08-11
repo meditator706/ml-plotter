@@ -32,6 +32,23 @@ A simplified machine learning experiment visualization library that maintains pr
 pip install matplotlib pandas numpy scipy
 ```
 
+#### Simple Logger (Recommended) ⭐
+
+```python
+import simple_logger as logger
+
+# Start experiment - like wandb.init()
+logger.init(project="my_experiment", config={"lr": 0.001})
+
+# Log metrics - like wandb.log()
+for step in range(1000):
+    logger.log({"loss": loss, "accuracy": acc})
+
+# Generate plots - one line
+logger.plot("my_experiment", "loss", group_by="lr")
+logger.summary("my_experiment")
+```
+
 #### Basic Usage
 
 ```python
@@ -55,33 +72,6 @@ fig = plotter.plot_training_curves(
     title="Training Performance Comparison",
     legend_loc='upper right'
 )
-
-# Performance bar chart
-fig = plotter.plot_performance_bars(
-    data_paths=["method1", "method2", "method3"],
-    title="Final Performance Comparison"
-)
-```
-
-#### Logger Integration
-
-```python
-from ml_plotter_logger import create_integrated_logger
-
-# Create integrated logger
-logger = create_integrated_logger("experiment_logs")
-
-# Start experiment run
-logger.start_run("my_experiment", "run_1", 
-                params={"lr": 0.001, "algorithm": "TD3"})
-
-# Log metrics during training
-for step in range(1000):
-    logger.log("run_1", step, {"reward": reward, "loss": loss})
-
-# Auto-generate all plots
-figures = logger.auto_plot_experiment("my_experiment", 
-                                    group_by="algorithm")
 ```
 
 ### 📊 Supported Chart Types
@@ -141,7 +131,10 @@ Run the complete examples:
 # Basic plotting examples
 python example.py
 
-# Logger integration examples
+# Simple logger examples (Recommended)
+python example_simple.py
+
+# Advanced logger integration
 python example_integrated_logger.py
 ```
 
@@ -173,6 +166,23 @@ MIT License
 pip install matplotlib pandas numpy scipy
 ```
 
+#### 极简日志记录 (推荐) ⭐
+
+```python
+import simple_logger as logger
+
+# 开始实验 - 像 wandb.init()
+logger.init(project="my_experiment", config={"lr": 0.001})
+
+# 记录指标 - 像 wandb.log()
+for step in range(1000):
+    logger.log({"loss": loss, "accuracy": acc})
+
+# 生成图表 - 一行代码
+logger.plot("my_experiment", "loss", group_by="lr")
+logger.summary("my_experiment")
+```
+
 #### 基本用法
 
 ```python
@@ -196,33 +206,6 @@ fig = plotter.plot_training_curves(
     title="Training Performance Comparison",
     legend_loc='upper right'
 )
-
-# 性能柱状图
-fig = plotter.plot_performance_bars(
-    data_paths=["method1", "method2", "method3"],
-    title="Final Performance Comparison"
-)
-```
-
-#### 日志集成
-
-```python
-from ml_plotter_logger import create_integrated_logger
-
-# 创建集成日志记录器
-logger = create_integrated_logger("experiment_logs")
-
-# 开始实验运行
-logger.start_run("my_experiment", "run_1", 
-                params={"lr": 0.001, "algorithm": "TD3"})
-
-# 训练过程中记录指标
-for step in range(1000):
-    logger.log("run_1", step, {"reward": reward, "loss": loss})
-
-# 自动生成所有图表
-figures = logger.auto_plot_experiment("my_experiment", 
-                                    group_by="algorithm")
 ```
 
 ### 📊 支持的图表类型
@@ -282,7 +265,10 @@ plotter = MLPlotter(smooth_window=300)
 # 基本绘图示例
 python example.py
 
-# 日志集成示例
+# 极简日志示例 (推荐)
+python example_simple.py
+
+# 高级日志集成
 python example_integrated_logger.py
 ```
 
