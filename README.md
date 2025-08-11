@@ -1,6 +1,12 @@
-# ML Plotter | 简化的机器学习实验可视化库
+<div align="center">
 
-[English](#english) | [中文](#中文)
+# ML Plotter
+
+*A simplified machine learning experiment visualization library*
+
+[![English](https://img.shields.io/badge/Language-English-blue)](#english) [![中文](https://img.shields.io/badge/语言-中文-red)](#中文)
+
+</div>
 
 ---
 
@@ -13,7 +19,7 @@ A simplified machine learning experiment visualization library that maintains pr
 - 🎨 **Professional Academic Style** - Publication-quality charts for top-tier conferences/journals
 - 📊 **Automatic Data Processing** - Smart CSV format recognition and data cleaning
 - 🔧 **Simple API** - Generate complex charts with just a few lines of code
-- 📈 **Multiple Chart Types** - Training curves, bar charts, box plots, etc.
+- 📈 **Multiple Chart Types** - Training curves, bar charts, box plots
 - 🎯 **Batch Processing** - Auto-discover and process multiple experimental conditions
 - 🌈 **Consistent Visual Style** - Predefined color mappings and style configurations
 
@@ -113,6 +119,10 @@ Run the complete example:
 python example.py
 ```
 
+### 📄 License
+
+MIT License
+
 ---
 
 ## 中文
@@ -124,7 +134,7 @@ python example.py
 - 🎨 **专业学术风格** - 符合顶级会议/期刊标准的图表质量
 - 📊 **自动数据处理** - 智能识别CSV格式，自动清洗和对齐数据
 - 🔧 **简洁API** - 几行代码生成复杂图表
-- 📈 **多种图表类型** - 训练曲线、柱状图、箱线图等
+- 📈 **多种图表类型** - 训练曲线、柱状图、箱线图
 - 🎯 **批量处理** - 自动发现和处理多个实验条件
 - 🌈 **一致的视觉风格** - 预设的颜色映射和样式配置
 
@@ -224,12 +234,6 @@ plotter = MLPlotter(smooth_window=300)
 python example.py
 ```
 
----
-
-## 📄 License
+### 📄 许可证
 
 MIT License
-
-## 🙏 Acknowledgments
-
-Based on professional plotting programs, maintaining the same visual style and quality standards.
